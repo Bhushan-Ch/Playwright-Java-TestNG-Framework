@@ -14,11 +14,11 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void loginTest() {
-		LoginPage loginPage = new LoginPage(PlaywrightFactory.page);
+		LoginPage loginPage = new LoginPage(PlaywrightFactory.getPage());
 
-		HomePage homePage = loginPage.login("secret_sauce", "secret_sauce");
+		HomePage homePage = loginPage.login("standard_user", "secret_sauce");
 
-		//Assert.assertTrue(homePage.isHomePageDisplayed(), "Home Page not displayed after login");
+		Assert.assertTrue(homePage.isHomePageDisplayed(), "Home Page not displayed after login");
 
 	}
 

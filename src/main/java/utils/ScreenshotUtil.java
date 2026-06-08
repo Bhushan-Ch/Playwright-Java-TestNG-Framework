@@ -11,7 +11,7 @@ public class ScreenshotUtil {
 	public static String captureScreenshot(String testName) {
 		String path = "screenshots/" + testName + System.currentTimeMillis() + ".png";
 
-		PlaywrightFactory.page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)));
+		PlaywrightFactory.getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)));
 
 		return path;
 	}

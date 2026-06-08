@@ -11,19 +11,24 @@ import utils.ConfigReader;
 public class BaseTest {
 	protected Page page;
 
-	@BeforeMethod
-	public void setUp() {
+    @BeforeMethod
+    public void setUp() {
 
-		page = PlaywrightFactory.initBrowser();
+        PlaywrightFactory.initBrowser();
 
-		page.navigate(ConfigReader.getProperty("url"));
-	}
+        page = PlaywrightFactory.getPage();
 
-	@AfterMethod
-	public void tearDown() {
-		PlaywrightFactory.context.close();
-		PlaywrightFactory.browser.close();
-		PlaywrightFactory.page.close();
-	}
+        page.navigate(
+                ConfigReader.getProperty("url"));
+    }
 
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+
+        try {
+            PlaywrightFactory.closeBrowser();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
