@@ -1,0 +1,19 @@
+<suite name="PlaywrightSuite"
+       parallel="methods"
+       thread-count="3">
+
+    <listeners>
+        <listener class-name=
+        "listeners.TestListener"/>
+    </listeners>
+
+    <test name="LoginTests">
+
+        <classes>
+            <class name=
+            "tests.LoginTest"/>
+        </classes>
+
+    </test>
+
+</suite>
